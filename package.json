@@ -1,0 +1,31 @@
+{
+  "name": "ownmcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generate reviewed WebMCP registerTool code for a web app you own.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "bin": {
+    "ownmcp": "./src/cli.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "prepare": "node scripts/link-self.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --test-reporter=spec test/*.test.ts",
+    "demo": "node demo/server.ts",
+    "generate:demo": "node src/cli.ts generate --origin http://127.0.0.1:44731 --openapi demo/openapi.json --forms demo/shop.html --har test/fixtures/pantry.har --out demo/generated --name pantry",
+    "lighthouse": "node scripts/lighthouse.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "lighthouse": "^13.6.0",
+    "playwright-core": "^1.65.0",
+    "typescript": "^7.0.2"
+  }
+}

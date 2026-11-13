@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>North Pantry</title>
+  <meta name="description" content="A three-item shelf. Add coffee, tea, or honey to a basket and place an in-memory order. Nothing is charged.">
+  <link rel="stylesheet" href="/shop.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Fixture shop</p>
+      <h1>North Pantry</h1>
+      <p class="lede">Three things on the shelf. The basket lives in this server's memory and disappears when the process stops. Checkout records an order. It does not charge a card.</p>
+    </header>
+    <div id="notices"><!--@@NOTICES@@--></div>
+    <div class="layout">
+      <section aria-labelledby="shelf-title">
+        <h2 id="shelf-title">Shelf</h2>
+        <ul class="shelf">
+          <li>
+            <div><strong>Cedar coffee</strong><p class="meta">Whole bean, 12 oz bag</p></div>
+            <span>$14.00</span>
+          </li>
+          <li>
+            <div><strong>Smoked tea</strong><p class="meta">Lapsang, 20 bags</p></div>
+            <span>$9.00</span>
+          </li>
+          <li>
+            <div><strong>Clover honey</strong><p class="meta">8 oz jar</p></div>
+            <span>$11.00</span>
+          </li>
+        </ul>
+        <form id="add-form" action="/api/cart" method="post" toolname="add_to_cart" tooldescription="Add a shelf item to the basket.">
+          <label for="sku">Item
+            <select id="sku" name="sku" required toolparamdescription="Shelf sku: coffee, tea, or honey.">
+              <option value="coffee">Cedar coffee — $14.00</option>
+              <option value="tea">Smoked tea — $9.00</option>
+              <option value="honey">Clover honey — $11.00</option>
+            </select>
+          </label>
+          <label for="qty">Quantity
+            <input id="qty" name="qty" type="number" min="1" max="12" value="1" required toolparamdescription="How many to add, from 1 to 12.">
+          </label>
+          <button type="submit">Add to basket</button>
+        </form>
+      </section>
+      <div class="stack">
+        <section aria-labelledby="basket-title">
+          <h2 id="basket-title">Basket</h2>
+          <div id="basket-body"><!--@@BASKET@@--></div>
+          <form id="checkout-form" action="/api/checkout" method="post" toolname="place_order" tooldescription="Place an in-memory order for the current basket and clear it. This demo does not charge a card.">
+            <button type="submit">Place order</button>
+          </form>
+        </section>
+        <section aria-labelledby="orders-title">
+          <h2 id="orders-title">Orders this session</h2>
+          <div id="orders-body"><!--@@ORDERS@@--></div>
+        </section>
+      </div>
+    </div>
+    <section aria-labelledby="agent-title">
+      <h2 id="agent-title">Agent tools</h2>
+      <p id="agent-tools-status">The registration script has not reported yet.</p>
+      <ul id="agent-tools-list"></ul>
+    </section>
+    <footer>
+      <p>People use the forms above. Agents can use the same forms, or the generated <a href="/generated/browser.js">registerTool script</a>. Read tools and the confirmation gate are in that script.</p>
+    </footer>
+  </div>
+  <script src="/generated/browser.js" defer></script>
+</body>
+</html>
