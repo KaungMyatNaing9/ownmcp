@@ -1,0 +1,81 @@
+{
+  "lighthouseVersion": "13.6.0",
+  "requestedUrl": "http://127.0.0.1:44741/",
+  "fetchTime": "2026-11-13T19:15:46.457Z",
+  "chromeFlags": "--headless=new --no-sandbox --disable-gpu --enable-features=WebMCP,DeclarativeWebMCP",
+  "category": {
+    "title": "Agentic Browsing",
+    "score": 1
+  },
+  "audits": {
+    "agent-accessibility-tree": {
+      "title": "Accessibility tree is well-formed",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "displayValue": "All audits passed",
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "webmcp-form-coverage": {
+      "title": "WebMCP form coverage",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "displayValue": null,
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "webmcp-registered-tools": {
+      "title": "WebMCP tools registered",
+      "score": 1,
+      "scoreDisplayMode": "informative",
+      "displayValue": null,
+      "tools": [
+        "get_cart",
+        "list_orders",
+        "list_products",
+        "add_to_cart",
+        "place_order"
+      ],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "webmcp-schema-validity": {
+      "title": "WebMCP schemas are valid",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "displayValue": null,
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "cumulative-layout-shift": {
+      "title": "Cumulative Layout Shift",
+      "score": 1,
+      "scoreDisplayMode": "numeric",
+      "displayValue": "0.027",
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "llms-txt": {
+      "title": "llms.txt follows recommendations",
+      "score": 1,
+      "scoreDisplayMode": "binary",
+      "displayValue": null,
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    },
+    "ard-schema": {
+      "title": "ARD manifest is valid",
+      "score": null,
+      "scoreDisplayMode": "notApplicable",
+      "displayValue": null,
+      "tools": [],
+      "warnings": [],
+      "errorMessage": null
+    }
+  }
+}

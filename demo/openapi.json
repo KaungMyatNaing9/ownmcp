@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "North Pantry",
+    "version": "1.0.0",
+    "description": "In-memory shelf, basket, and orders for the ownmcp demo. Checkout does not charge a card."
+  },
+  "servers": [
+    { "url": "http://127.0.0.1:44731" }
+  ],
+  "paths": {
+    "/api/products": {
+      "get": {
+        "operationId": "list_products",
+        "summary": "List the jars, tins, and bags currently on the shelf.",
+        "responses": { "200": { "description": "The shelf." } }
+      }
+    },
+    "/api/cart": {
+      "get": {
+        "operationId": "get_cart",
+        "summary": "Read the current basket and its total.",
+        "responses": { "200": { "description": "The basket." } }
+      },
+      "post": {
+        "operationId": "add_to_cart",
+        "summary": "Add a shelf item to the basket.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["sku", "qty"],
+                "properties": {
+                  "sku": {
+                    "type": "string",
+                    "enum": ["coffee", "tea", "honey"],
+                    "description": "Shelf sku."
+                  },
+                  "qty": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12,
+                    "description": "How many to add."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "The updated basket." },
+          "303": { "description": "Redirect after an HTML form post." }
+        }
+      }
+    },
+    "/api/checkout": {
+      "post": {
+        "operationId": "place_order",
+        "summary": "Place an in-memory order for the current basket and clear it. This demo does not charge a card.",
+        "responses": {
+          "200": { "description": "The recorded order." },
+          "400": { "description": "The basket is empty." }
+        }
+      }
+    },
+    "/api/orders": {
+      "get": {
+        "operationId": "list_orders",
+        "summary": "List orders placed during this server process.",
+        "responses": { "200": { "description": "Orders for this process." } }
+      }
+    }
+  }
+}

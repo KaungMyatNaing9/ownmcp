@@ -1,0 +1,5 @@
+# North Pantry
+
+North Pantry is a one-page shop used to exercise ownmcp. A person can read the shelf, add coffee, tea, or honey to a basket, and place an in-memory order. Checkout does not charge a card.
+
+- [Shelf](/): the only page, with the basket and the order list

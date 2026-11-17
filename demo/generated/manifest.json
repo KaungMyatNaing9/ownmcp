@@ -1,0 +1,76 @@
+{
+  "name": "pantry",
+  "origin": "http://127.0.0.1:44731",
+  "tools": [
+    {
+      "name": "add_to_cart",
+      "effect": "state-changing",
+      "confirmation": "required",
+      "method": "POST",
+      "path": "/api/cart",
+      "sources": [
+        "form",
+        "har",
+        "openapi"
+      ],
+      "reviewNotes": [
+        "A recording or form used a form body. The handler sends JSON because an OpenAPI application/json schema is present."
+      ]
+    },
+    {
+      "name": "get_cart",
+      "effect": "read",
+      "confirmation": "not-required",
+      "method": "GET",
+      "path": "/api/cart",
+      "sources": [
+        "har",
+        "openapi"
+      ],
+      "reviewNotes": []
+    },
+    {
+      "name": "list_orders",
+      "effect": "read",
+      "confirmation": "not-required",
+      "method": "GET",
+      "path": "/api/orders",
+      "sources": [
+        "har",
+        "openapi"
+      ],
+      "reviewNotes": []
+    },
+    {
+      "name": "list_products",
+      "effect": "read",
+      "confirmation": "not-required",
+      "method": "GET",
+      "path": "/api/products",
+      "sources": [
+        "har",
+        "openapi"
+      ],
+      "reviewNotes": []
+    },
+    {
+      "name": "place_order",
+      "effect": "state-changing",
+      "confirmation": "required",
+      "method": "POST",
+      "path": "/api/checkout",
+      "sources": [
+        "form",
+        "har",
+        "openapi"
+      ],
+      "reviewNotes": [
+        "This looks hard to undo. Keep the confirmation gate."
+      ]
+    }
+  ],
+  "notes": [
+    "Dropped 1 request whose origin was not http://127.0.0.1:44731.",
+    "Skipped 1 static or discovery request. Those are not tools."
+  ]
+}
